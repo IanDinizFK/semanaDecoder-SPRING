@@ -5,7 +5,7 @@ Este repositório contém anotações e resumos da **Semana Decoder**, com foco 
 ---
 
 ## 🎥 Aula 01 — Introdução aos Microsserviços  
-> 🎬 **Link da Aula:** _[adicione aqui o link do vídeo completo da aula]_
+> 🎬 **Link da Aula:** _[Fique por dentro!](https://drive.google.com/file/d/160hEjRqJ4SpEn2wWTF-T-ixG8qv-vlUi/view?usp=sharing)_
 
 ---
 
