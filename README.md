@@ -1,146 +1,237 @@
-# 📚 Semana Decoder - Microsserviços com Spring
-## Case: Sistema EAD
-Este repositório contém os estudos e anotações da **Semana Decoder**, com foco na arquitetura de **Microsserviços utilizando Spring Framework**.
+# 📚 Semana Decoder - Microsserviços com Spring  
+**Estudo de caso: Sistema EAD**  
+Este repositório contém anotações e resumos da **Semana Decoder**, com foco em arquitetura de **Microsserviços usando o ecossistema Spring**.
 
 ---
 
-## 📅 Dia 01 - Introdução aos Microsserviços (Anotações)
-
-### 💡 Aula teórica: Conceitos e Evolução Arquitetural
-
-#### 🔹 Evolução 1 - Sistema Monolítico (2min40s)
-Aplicações construídas como um único bloco contendo:
-- Frontend + Backend juntos;
-- Todas as regras de negócio fortemente acopladas;
-- Uso de uma única base de dados.
-
-#### 🔹 Evolução 2 - Separação de Frontend e Backend
-- Frontend separado do Backend;
-- Backend ainda permanece monolítico.
-
-#### 🔹 Evolução 3 - Arquitetura de Microsserviços
-- Backend dividido em **múltiplos serviços independentes**;
-- Cada serviço possui responsabilidades e funcionalidades específicas;
-- Serviços funcionam de forma autônoma;
-- Cada um pode utilizar sua **própria base de dados**.
-
-#### 🔹 Evolução 4 - Microsserviços também no Frontend
-- Frontend também passa a ser modularizado em múltiplas aplicações;
-- Cada módulo é associado a um serviço ou contexto específico.
-
-> Essa evolução atende à necessidade de **flexibilidade, escalabilidade e independência** no desenvolvimento de sistemas modernos.
+## 🎥 Aula 01 — Introdução aos Microsserviços  
+> 🎬 **Link da Aula:** _[adicione aqui o link do vídeo completo da aula]_
 
 ---
 
-## ✅ Benefícios da Arquitetura de Microsserviços (6min30s)
+### 💡 Conceitos e Evolução Arquitetural  
+> ⏱️ **(2min40s)**  
 
-- ✅ Manutenibilidade
-- ✅ Alta disponibilidade
-- ✅ Flexibilidade tecnológica
-- ✅ Independência entre equipes
-- ✅ Melhor performance
-- ✅ Divisão da complexidade do negócio
-- ✅ Isolamento de falhas
-- ✅ Alta escalabilidade
-- ✅ Baixo acoplamento
-- ✅ Melhor testabilidade
-- ✅ Agilidade nas mudanças
-- ✅ Isolamento na modelagem de dados
-- ✅ Maior resiliência
+#### 🔹 Evolução 1 — Sistema Monolítico  
+- Frontend + Backend juntos  
+- Regras de negócio acopladas  
+- Uma única base de dados  
 
----
-## 🧠 Microsserviços de Negócio - Definição e Boas Práticas 10min
+#### 🔹 Evolução 2 — Separação de Frontend e Backend  
+- Frontend separado do Backend  
+- Backend ainda permanece monolítico  
 
-Ao projetar uma arquitetura baseada em microsserviços, o primeiro passo é definir claramente os **Microsserviços de Negócio**, com base em uma análise profunda das funcionalidades e regras da aplicação.
+#### 🔹 Evolução 3 — Arquitetura de Microsserviços  
+- Backend dividido em múltiplos serviços independentes  
+- Cada serviço possui suas responsabilidades e base de dados própria  
 
-### 📌 Compreendendo o Domínio
+#### 🔹 Evolução 4 — Microsserviços também no Frontend  
+- Frontend modularizado em múltiplas aplicações  
+- Cada módulo atrelado a um contexto específico  
 
-No contexto de um sistema EAD (Ensino a Distância), devemos identificar:
-
-- As **ações** do sistema;
-- As **funcionalidades** envolvidas;
-- Os **domínios** principais;
-- As **regras de negócio**.
-
-Exemplos de domínios identificados:
-- 👥 **Usuários** (Alunos e Funcionários)
-- 📚 **Cursos**
-- 🔔 **Notificações**
-- 💳 **Pagamentos**
-
-### 🔧 Serviços sugeridos
-
-Com base nos domínios acima, podemos estruturar os seguintes serviços:
-
-- `UserService`
-- `CourseService`
-- `NotificationService`
-- `PaymentService`
+> Essa evolução proporciona **flexibilidade, escalabilidade e independência** no desenvolvimento de sistemas modernos.
 
 ---
 
-## 🎯 Granularidade dos Serviços 13min30s
+### ✅ Benefícios da Arquitetura de Microsserviços  
+> ⏱️ **(6min30s)**
 
-A definição da granularidade ideal depende das necessidades do projeto. No entanto, é importante evitar dois extremos:
-
-### ❌ Mini-monólitos
-- Serviços grandes demais, com muitas responsabilidades.
-- Regras de negócio misturadas e alto acoplamento.
-
-### ❌ Nano-serviços
-- Serviços pequenos demais, com funcionalidades rasas.
-- Excesso de comunicação entre serviços.
-
----
-
-## 🧩 Quando dividir um serviço?
-
-A divisão de um serviço deve acontecer quando ele apresentar:
-- Muitas responsabilidades;
-- Complexidade crescente;
-- Alto acoplamento interno.
-
-### ✅ Exemplo prático
-
-Dividindo o `NotificationService`:
-- `GmailSMTPService`
-- `AWSSMTPService`
-- `SMSService`
-
-Dividindo o `PaymentService`:
-- `PagSeguroService`
-- `PayPalService`
-
-> Com essa abordagem, melhoramos a manutenibilidade e a resiliência, permitindo isolar e resolver falhas com mais facilidade.
+- ✅ Manutenibilidade  
+- ✅ Alta disponibilidade  
+- ✅ Flexibilidade tecnológica  
+- ✅ Independência entre equipes  
+- ✅ Melhor performance  
+- ✅ Divisão da complexidade  
+- ✅ Isolamento de falhas  
+- ✅ Alta escalabilidade  
+- ✅ Baixo acoplamento  
+- ✅ Melhor testabilidade  
+- ✅ Agilidade nas mudanças  
+- ✅ Isolamento na modelagem de dados  
+- ✅ Maior resiliência  
 
 ---
 
-## ⚠️ Cuidado com a fragmentação excessiva
+### 🧠 Microsserviços de Negócio: Definição e Boas Práticas  
+> ⏱️ **(10min)**
 
-Dividir demais pode gerar **problemas de arquitetura**:
-- Aumento do tráfego de comunicação entre serviços;
-- Dificuldade de manutenção;
-- Maior complexidade na integração.
+#### 📌 Compreendendo o Domínio  
+Domínios principais no sistema EAD:  
+- 👥 **Usuários** (Alunos e Funcionários)  
+- 📚 **Cursos**  
+- 🔔 **Notificações**  
+- 💳 **Pagamentos**  
 
----
-
-## ✅ Conclusão
-
-A melhor arquitetura de microsserviços nasce de um entendimento sólido do negócio. O objetivo é criar serviços:
-- Coesos;
-- Pouco acoplados;
-- Independentes;
-- E alinhados com os domínios reais da aplicação.
-
-## 🛠 Tecnologias utilizadas
-
-- Java 17+
-- Spring Boot
-- Spring Cloud (em aulas futuras)
-- Maven
-- Docker (em aulas futuras)
+#### 🔧 Serviços Sugeridos  
+- `UserService`  
+- `CourseService`  
+- `NotificationService`  
+- `PaymentService`  
 
 ---
 
-## 📁 Estrutura do Repositório
+### 🎯 Granularidade dos Serviços  
+> ⏱️ **(13min30s)**
 
+#### ❌ Mini-monólitos  
+- Muitos recursos e responsabilidades juntos  
+- Alto acoplamento  
+
+#### ❌ Nano-serviços  
+- Serviços pequenos demais  
+- Excesso de comunicação  
+
+#### ✅ Quando dividir um serviço?  
+- Quando há muitas responsabilidades ou alto acoplamento  
+
+##### Exemplo prático:  
+- `NotificationService` → `GmailSMTPService`, `AWSSMTPService`, `SMSService`  
+- `PaymentService` → `PagSeguroService`, `PayPalService`  
+
+> Melhora a manutenibilidade e resiliência.
+
+---
+
+### ⚠️ Cuidado com a Fragmentação Excessiva  
+> ⏱️ **(16min)**
+
+- Aumento do tráfego entre serviços  
+- Complexidade de manutenção  
+- Integração difícil  
+
+---
+
+## 🌐 Ecossistema Spring e Infraestrutura  
+
+### 🚀 Usando o Ecossistema Spring  
+> ⏱️ **(17min40s)**  
+
+- `Spring Boot` – Inicialização rápida  
+- `Spring Security` – Segurança  
+- `Spring Cloud` – Arquitetura distribuída  
+- `Spring Data` – Integração com bases de dados  
+- `Spring Web`, `Spring AMQP`, `Spring Batch`  
+
+Permite trabalhar com:  
+- Cloud-native  
+- Programação reativa  
+- Batch e Event-driven  
+- Diversas tecnologias de banco de dados  
+
+---
+
+### 🛢️ Estratégia de Base de Dados  
+> ⏱️ **(24min a 26min)**  
+
+#### ❌ Base Compartilhada  
+- Forte consistência, mas alto acoplamento  
+
+#### ✅ Base por Microsserviço  
+- Flexibilidade tecnológica  
+- Independência para escalar  
+- Isolamento de falhas  
+
+Tecnologias compatíveis com Spring Data:  
+- JPA  
+- MongoDB  
+- Redis  
+
+---
+
+### 📌 Identificadores Universais (UUID)  
+> ⏱️ **(28min)**  
+
+- Evitam colisões de ID em ambientes distribuídos  
+- IDs sequenciais não são seguros em microsserviços  
+
+---
+
+### 🔗 Comunicação entre Microsserviços  
+> ⏱️ **(30min)**  
+
+- Desacoplamento **absoluto é mito**  
+- Algum grau de acoplamento é sempre necessário  
+
+---
+
+### ⚙️ Microsserviços de Configuração  
+> ⏱️ **(33min)**  
+
+- Serviços que tratam de **preocupações transversais**  
+- Não contêm regras de negócio  
+
+---
+
+### 🌉 API Gateway  
+> ⏱️ **(34min30s a 37min40s)**  
+
+#### O que é:  
+- Porta única para requisições externas  
+- Roteia requisições para os microsserviços  
+
+#### Ferramenta:  
+- `Spring Cloud Gateway`  
+  - Baseado em Project Reactor  
+  - Programação reativa com Netty  
+  - Permite filtros, predicados, controle de tráfego, integração com Service Registry  
+
+---
+
+### 📘 Service Registry  
+> ⏱️ **(42min a 44min10s)**  
+
+- Gerencia registro e descoberta de instâncias  
+- Fornece IP, porta e domínio aos serviços  
+
+#### Ferramentas:  
+- `Spring Cloud Netflix Eureka`  
+- Alternativa: `Spring Cloud LoadBalancer`  
+
+---
+
+### 🛠️ Global Configuration  
+> ⏱️ **(46min a 49min)**  
+
+#### Problema:  
+- Muitos arquivos `.properties` dispersos  
+- Difícil versionamento e manutenção  
+
+#### Solução:  
+- `Spring Cloud Config`  
+  - Centraliza configurações  
+  - Integração com Git  
+  - API REST  
+  - Suporte a criptografia  
+  - Recarregamento com `@RefreshScope`  
+
+---
+
+### 🔎 Padrões de Observabilidade  
+> *(Em breve)*  
+
+Ferramentas previstas:  
+- `Spring Boot Actuator`  
+- `Zipkin`  
+- `ELK`  
+- `Prometheus`  
+- `Grafana`  
+
+---
+
+## ✅ Conclusão  
+A arquitetura de microsserviços eficiente nasce de um entendimento claro do negócio. Boas práticas incluem:
+
+- Coesão  
+- Baixo acoplamento  
+- Independência  
+- Alinhamento com o domínio da aplicação  
+
+---
+
+## 🛠 Tecnologias Utilizadas  
+
+- Java 17+  
+- Spring Boot  
+- Spring Cloud *(futuro)*  
+- Maven  
+- Docker *(futuro)*  
