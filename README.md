@@ -4,7 +4,7 @@ Este repositório contém os estudos e anotações da **Semana Decoder**, com fo
 
 ---
 
-## 📅 Dia 01 - Introdução aos Microsserviços
+## 📅 Dia 01 - Introdução aos Microsserviços (Anotações)
 
 ### 💡 Aula teórica: Conceitos e Evolução Arquitetural
 
